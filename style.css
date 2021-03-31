@@ -54,15 +54,17 @@ button:hover{
 .form {
     border: 5px solid dodgerblue;
     width: 50%;
+    margin-top: 5rem;
     margin-left: auto;
     margin-right: auto;
     background-color: dodgerblue;
-    margin-bottom: 100px;
+    margin-bottom: 2rem;
 }
 .form label
 {
     color: white;
     border: none;
+    background: none;
    
 }
 .form input {
