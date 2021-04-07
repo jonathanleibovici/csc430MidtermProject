@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css"/>
+    <title>bill info</title>
+</head>
+    <body>
+       <header>
+            <nav>
+               <ul class = "nav_links">
+                   <li><a href="addBill.html">Add a bill</a></li>
+                   <li><a href="bills.html">Bills</a></li>
+                   <li><a href="about.html">About us</a></li>
+               </ul>
+            </nav>
+       </header>
+       <p>#{title}</p>
+                <table id="results">
+                <tr>
+                    <th>company</th>
+                    <th>Bill Due Date</th>
+                    <th>Bill Amount</th>
+                    <th>Bill Description</th>
+                    <th>Link to pay</th>
+                </tr>
+                    each bill in bills
+                        <tr>
+                            <td>#{bill.companyName}</td>
+                            <td>#{bill.dateDue}</td>
+                            <td>#{bill.amount}</td>
+                            <td>#{bill.description}</td>
+                            <td>#{bill.link}</td>
+                        </tr>
+                </table> 
+    </body>
+</html>
+
+
