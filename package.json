@@ -18,9 +18,12 @@
   },
   "homepage": "https://github.com/jonathanleibovici/csc430MidtermProject#readme",
   "dependencies": {
+    "@vonage/server-sdk": "^2.10.8",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "mysql": "^2.18.1",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "socket.io": "^4.0.1"
   }
 }

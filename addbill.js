@@ -23,10 +23,12 @@ var connection = mysql.createConnection({
 	user: "root",
 	password: "",
 	database: "test",
+	port:3308
+	//socketPath: "localhost/phpmyadmin/index.php?route=/sql&server=1&db=test&table=customerTable&pos=0"
 });
 
 connection.connect(function (err) {
-	if (err) throw err;
+	if (err){ throw err;}
 
 	console.log("connected");
 });
@@ -44,6 +46,7 @@ app.get("/addBill.html", (req, res) => {
 			res.redirect("/");
 			return;
 		}
+		
 
 		console.log(results);
 		res.sendFile(path.join(__dirname, "./static/addBill.html"));
@@ -54,6 +57,18 @@ app.use("/", express.static(path.join(__dirname, "static")));
 
 app.get("/", (req, res) => {
 	res.redirect("/login.html");
+});
+app.post("/something", (req, res) => {
+	console.log("something");
+	res.send("something");
+	console.log(req)
+	 var sqll = `UPDATE dashboard SET payedORnot = yes WHERE bill = '${req.body.yes}`
+		connection.query(sqll, function (err, results) {
+		 	if (err) throw err;
+
+			console.log(something());
+			
+		 });
 });
 
 app.get("/bills.html", (req, res) => {
@@ -84,9 +99,19 @@ app.get("/bills.html", (req, res) => {
 		connection.query(sql, function (err, results) {
 			if (err) throw err;
 
+			
 			res.render("results", { title: "Your Bills", bills: results || [] });
-			//connection.connect();//i need this
+			
 		});
+		//put tht function here
+		// var sqll = `UPDATE dashboard SET payedORnot = yes WHERE bill = '${req.billID}`
+		// connection.query(sqll, function (res,req) {
+		// 	if (err) throw err;
+
+			
+			
+		// });
+		
 	});
 });
 

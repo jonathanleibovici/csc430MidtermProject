@@ -1,9 +1,11 @@
 <html lang="en">
 <head>
+    <script src='../buttonfunc.js'> </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css"/>
+    
     <title>bill info</title>
 </head>
     <body>
@@ -13,6 +15,7 @@
                    <li><a href="addBill.html">Add a bill</a></li>
                    <li><a href="bills.html">Bills</a></li>
                    <li><a href="about.html">About us</a></li>
+                    <li><a href="index.html">textmsg</a></li>
                    <li><a href="logout">Logout</a></li>
                </ul>
             </nav>
@@ -25,17 +28,38 @@
                     <th>Bill Amount</th>
                     <th>Bill Description</th>
                     <th>Link to pay</th>
+                    <th>Payed Or not Payed</th>
                 </tr>
                     each bill in bills
                         <tr>
+                        
                             <td>#{bill.companyName}</td>
                             <td>#{bill.dateDue}</td>
                             <td>#{bill.amount}</td>
                             <td>#{bill.description}</td>
                             <td>#{bill.link}</td>
+                            
+                            <td>
+                            if bill.payedORnot == NULL
+                                <div id="payedOrNot">
+                                    <form method = "POST" action="/something">
+                                        <input type = "hidden" name="yes" value= #{bill.bill}>
+                                        <input type="submit" value="Yes" />
+                                    </form>
+                                    <form method = "POST" action="/something">
+                                        <input type = "hidden" name="no" value= #{bill.bill}>
+                                        <input type="submit" value="No" />
+                                    </form>
+                                </div>
+                            else 
+                                <div id="hello">#{bill.payedORnot}</div>
+                                //- <div id="no">no</div>
+                            </td>
                         </tr>
                 </table> 
+                
     </body>
+    
 </html>
 
 
